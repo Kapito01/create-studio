@@ -3,46 +3,105 @@
 ### Creative Production • Photography • Film • Visual Storytelling
 
 [![Live Website](https://img.shields.io/badge/Website-createstudios.co.in-black?style=flat-square)](https://createstudios.co.in)
-[![Version](https://img.shields.io/badge/Version-1.0-white?style=flat-square)](https://github.com/Kapito01/create-studio)
+[![Version](https://img.shields.io/badge/Version-3.4-white?style=flat-square)](https://github.com/Kapito01/create-studio)
 
 ---
 
 ## About
 
-**CREATE STUDIO** is a creative production studio focused on photography, filmmaking, creative direction, and visual storytelling.
+**CREATE STUDIO** is a creative production studio focused on photography,
+filmmaking, creative direction and visual storytelling.
 
-This repository contains **Version 1** of the CREATE STUDIO website — the first digital home for the studio and a foundation for everything that comes next.
+This repository contains the ongoing development of the CREATE STUDIO
+website — a digital space built to showcase original work, creative
+projects and the studio's visual identity.
 
-> We create visual stories.
+> **We create visual stories.**
 
 ---
 
-## V1 — The Beginning
+## The Beginning
 
-Version 1 was built as a starting point rather than a finished product.
+CREATE STUDIO started as an idea for a dedicated digital home for the
+creative work behind the studio.
 
-The goal was to create a clean, cinematic and editorial digital experience that reflects the visual language of CREATE while showcasing original photography and creative work.
+The first version of the website was built as a simple single-page
+experience and deployed through GitHub Pages.
 
-This first version includes:
+Since then, the site has evolved through multiple iterations of design,
+interaction and content.
 
-- Full-screen cinematic hero section
-- CREATE STUDIO visual identity
-- Selected work / portfolio gallery
-- Original photography
-- Services section
-- Studio statement
-- Contact section
-- Responsive design
-- Interactive image lightbox
-- Mobile navigation
+---
+
+## V3.4 — Current Version
+
+Version 3.4 continues to develop the editorial and cinematic direction of
+the site while keeping the interface intentionally minimal.
+
+### Current features
+
+- Full-screen cinematic hero
+- CREATE / STUDIO visual identity
+- Large editorial typography
+- Original photography throughout the portfolio
+- Selected work gallery
+- Interactive image viewer
+- Responsive layout
+- Full-screen navigation menu
+- Smooth page navigation
+- Slow horizontal client-logo marquee
+- Client logo hover enlargement
 - Custom domain
 - GitHub Pages deployment
 
 ---
 
-## Tech Stack
+## Clients & Collaborations
 
-Built with:
+CREATE STUDIO has created work for organisations including:
+
+- Max Healthcare
+- Clarks Inn
+- Everlast MedCore Group
+- Lanbally Physiotherapy Clinic
+
+The website uses their supplied logos within the client section.
+
+---
+
+## Visual Direction
+
+The website is influenced by:
+
+- Editorial design
+- Cinematic photography
+- Minimal typography
+- Contemporary creative studios
+- Film and production aesthetics
+- Negative space and strong visual hierarchy
+
+The interface is intentionally restrained so that the photography and
+creative work remain the primary visual focus.
+
+### Design principle
+
+> **The interface stays restrained.  
+> The work provides the color.**
+
+---
+
+## Photography
+
+The website features original photography created for CREATE STUDIO.
+
+The portfolio imagery is selected from the studio's own photographic work
+rather than stock photography.
+
+---
+
+## Technology
+
+The current version is intentionally lightweight and is built with:
 
 - HTML5
 - CSS3
@@ -50,35 +109,15 @@ Built with:
 - Google Fonts
 - GitHub Pages
 
-The first version intentionally uses a lightweight architecture to keep the site simple, fast and easy to evolve.
-
----
-
-## Visual Direction
-
-The website takes inspiration from:
-
-- Editorial design
-- Cinematic photography
-- Minimal typography
-- Film production aesthetics
-- Contemporary creative studios
-
-The design prioritizes imagery, typography and negative space rather than heavy UI elements.
-
----
-
-## Photography
-
-The portfolio uses original photography created for CREATE STUDIO.
-
-All featured images in Version 1 are owned or supplied by the creator and are not stock photography.
+The site currently uses a single-page architecture, making it easy to
+iterate quickly while the visual identity is being developed.
 
 ---
 
 ## Deployment
 
-The website is deployed using **GitHub Pages** with a custom domain.
+The website is hosted using **GitHub Pages** and connected to a custom
+domain.
 
 ### Live Website
 
@@ -86,13 +125,10 @@ The website is deployed using **GitHub Pages** with a custom domain.
 
 ---
 
-## Project Structure
+## Repository Structure
 
 ```text
 CREATE-STUDIO/
 │
 ├── index.html
-├── README.md
-│
-└── assets/
-    └── images/
+└── README.md
