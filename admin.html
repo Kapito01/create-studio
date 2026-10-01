@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CREATE STUDIO — Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}
+:root{--paper:#f2f1ed;--ink:#111;--muted:#77746d;--line:#c9c6bf;--panel:#ebeae5}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}
+.mono{font-family:"SFMono-Regular",Consolas,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;padding:28px}
+.login-card{width:min(460px,100%);border:1px solid var(--ink);padding:38px;background:var(--panel)}
+.brand{font-size:52px;font-weight:700;letter-spacing:-.08em;line-height:.8}
+.brand small{display:block;font:400 10px/1 "SFMono-Regular",Consolas,monospace;letter-spacing:.28em;margin-top:8px}
+.login h1{font-size:54px;font-weight:400;letter-spacing:-.065em;line-height:.86;margin:60px 0 35px}
+.field{margin:0 0 18px}.field label{display:block;margin-bottom:9px}
+.field input{width:100%;border:0;border-bottom:1px solid #999;background:transparent;padding:12px 0;outline:0}
+.field input:focus{border-color:var(--ink)}
+.primary{width:100%;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:999px;padding:16px 20px;margin-top:8px}
+.error{min-height:18px;color:#8b2d2d;margin-top:14px;font-size:12px}
+.nav{height:92px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(242,241,237,.94);backdrop-filter:blur(10px);z-index:20}
+.nav-brand{font-size:24px;font-weight:700;letter-spacing:-.06em;line-height:.8}.nav-brand small{display:block;font:400 7px/1 "SFMono-Regular",Consolas,monospace;letter-spacing:.26em;margin-top:6px}
+.nav-actions{display:flex;align-items:center;gap:16px}.ghost{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:10px 14px}
+.wrap{padding:46px 4vw 80px}
+.header-row{display:flex;justify-content:space-between;gap:24px;align-items:end}
+.header-row h1{font-size:clamp(56px,8vw,118px);font-weight:400;letter-spacing:-.085em;line-height:.82;margin:26px 0 0}
+.header-row p{max-width:420px;color:#555;line-height:1.6;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:55px 0}
+.stat{border:1px solid var(--line);padding:22px;background:var(--panel)}.stat .number{font-size:44px;letter-spacing:-.06em;margin-top:22px}.stat .label{color:var(--muted)}
+.toolbar{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:16px}
+.filters{display:flex;gap:10px;flex-wrap:wrap}.filters input,.filters select{border:1px solid var(--line);background:transparent;padding:11px 12px;outline:0}
+.table-wrap{border-top:1px solid var(--ink);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th,td{padding:17px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:13px;vertical-align:middle}
+th{font:400 9px "SFMono-Regular",Consolas,monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+tbody tr{cursor:pointer}tbody tr:hover{background:#e8e6e0}
+.status{display:inline-flex;border:1px solid #999;border-radius:999px;padding:7px 9px;font:400 8px "SFMono-Regular",Consolas,monospace;text-transform:uppercase}
+.empty{padding:50px 0;text-align:center;color:var(--muted)}
+.drawer{position:fixed;inset:0;z-index:50;background:rgba(13,13,13,.42);display:none}.drawer.open{display:block}
+.drawer-panel{position:absolute;right:0;top:0;height:100%;width:min(620px,100%);background:var(--paper);border-left:1px solid var(--ink);padding:34px;overflow:auto}
+.drawer-top{display:flex;justify-content:space-between;gap:20px}.drawer h2{font-size:56px;line-height:.86;letter-spacing:-.07em;font-weight:400;margin:30px 0 40px}
+.close{border:1px solid var(--ink);border-radius:50%;width:40px;height:40px;background:transparent}
+.detail{border-top:1px solid var(--line);padding:17px 0}.detail-label{color:var(--muted);margin-bottom:7px}.detail-value{font-size:15px;line-height:1.55;white-space:pre-wrap}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0}.action{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:12px 16px}.action.dark{background:var(--ink);color:var(--paper)}
+@media(max-width:820px){.nav{height:74px;padding:0 20px}.wrap{padding:34px 20px 55px}.header-row{display:block}.header-row p{margin-top:25px}.stats{grid-template-columns:1fr 1fr}.toolbar{display:block}.filters{margin-top:12px}.drawer-panel{padding:24px 20px}}
+</style>
+</head>
+<body>
+<section class="login" id="loginView">
+<div class="login-card">
+<div class="brand">CREATE<small>STUDIO</small></div>
+<p class="mono" style="margin-top:50px;color:#77746d">PRIVATE / ADMIN</p>
+<h1>WELCOME<br>BACK.</h1>
+<div class="field"><label class="mono">Email</label><input id="loginEmail" type="email" autocomplete="username" placeholder="admin email"></div>
+<div class="field"><label class="mono">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="password"></div>
+<button class="primary" id="loginBtn">ENTER CREATE →</button>
+<div class="error" id="loginError"></div>
+</div>
+</section>
+
+<section class="app hidden" id="appView">
+<header class="nav">
+<div class="nav-brand">CREATE<small>STUDIO / ADMIN</small></div>
+<div class="nav-actions"><span class="mono" id="currentUser"></span><button class="ghost mono" id="logoutBtn">Log out</button></div>
+</header>
+<main class="wrap">
+<div class="header-row">
+<div><p class="mono">PRIVATE WORKSPACE</p><h1>PROJECT<br>REQUESTS.</h1></div>
+<p>Every enquiry submitted through CREATE lives here. Review the brief, requested schedule, budget and current project status.</p>
+</div>
+<section class="stats">
+<article class="stat"><div class="mono label">Total</div><div class="number" id="statTotal">0</div></article>
+<article class="stat"><div class="mono label">New</div><div class="number" id="statNew">0</div></article>
+<article class="stat"><div class="mono label">Reviewing</div><div class="number" id="statReviewing">0</div></article>
+<article class="stat"><div class="mono label">Confirmed</div><div class="number" id="statConfirmed">0</div></article>
+</section>
+<section>
+<div class="toolbar"><p class="mono">RECENT REQUESTS</p><div class="filters"><input id="search" type="search" placeholder="Search clients..."><select id="statusFilter"><option value="">All status</option><option value="new">New</option><option value="reviewing">Reviewing</option><option value="accepted">Accepted</option><option value="confirmed">Confirmed</option><option value="in progress">In progress</option><option value="completed">Completed</option><option value="archived">Archived</option></select></div></div>
+<div class="table-wrap"><table><thead><tr><th>Client</th><th>Session</th><th>Date</th><th>Budget</th><th>Status</th><th>Received</th></tr></thead><tbody id="projectRows"></tbody></table><div class="empty hidden" id="emptyState">No project requests match your filters.</div></div>
+</section>
+</main>
+</section>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+<aside class="drawer-panel">
+<div class="drawer-top"><div><p class="mono" id="drawerEyebrow">PROJECT</p><h2 id="drawerTitle">—</h2></div><button class="close" id="closeDrawer" aria-label="Close">×</button></div>
+<div class="detail-actions"><select class="action" id="statusSelect"><option value="new">New</option><option value="reviewing">Reviewing</option><option value="accepted">Accepted</option><option value="confirmed">Confirmed</option><option value="in progress">In progress</option><option value="completed">Completed</option><option value="archived">Archived</option></select><button class="action dark" id="saveStatus">Save status</button></div>
+<div id="details"></div>
+</aside>
+</div>
+
+<script>
+const SUPABASE_URL='https://pfttxhjefnovagkddazc.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_mokm6MJJPZyXrYRfG5QxPw_LaRH4qjz';
+const ADMIN_USER_ID='5faf336f-532d-4c51-9015-51a5e2817bd3';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);let projects=[],selectedProject=null;
+const $=id=>document.getElementById(id);
+
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function fmtDate(v){if(!v)return '—';const d=new Date(v);return Number.isNaN(d.getTime())?v:d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}
+function setView(inApp){$('loginView').classList.toggle('hidden',inApp);$('appView').classList.toggle('hidden',!inApp)}
+
+async function loadSession(){
+ const {data:{session}}=await supabaseClient.auth.getSession();
+ if(session){$('currentUser').textContent=session.user.email||'';setView(true);await loadProjects()}else setView(false)
+}
+async function loadProjects(){
+ const {data,error}=await supabaseClient.from('project_requests').select('*').order('created_at',{ascending:false});
+ if(error){console.error(error);alert('Could not load project requests. The authenticated SELECT policy may not be configured yet.');return}
+ projects=data||[];renderStats();renderTable()
+}
+function renderStats(){
+ const s=p=>String(p.status||'new').toLowerCase();
+ $('statTotal').textContent=projects.length;
+ $('statNew').textContent=projects.filter(p=>s(p)==='new').length;
+ $('statReviewing').textContent=projects.filter(p=>s(p)==='reviewing').length;
+ $('statConfirmed').textContent=projects.filter(p=>s(p)==='confirmed').length;
+}
+function filtered(){
+ const q=$('search').value.trim().toLowerCase(),st=$('statusFilter').value.toLowerCase();
+ return projects.filter(p=>{
+   const hay=[p.name,p.email,p.session_type,p.location,p.description,p.project_type,p.budget].join(' ').toLowerCase();
+   return (!q||hay.includes(q))&&(!st||String(p.status||'new').toLowerCase()===st);
+ })
+}
+function renderTable(){
+ const body=$('projectRows'),items=filtered();body.innerHTML='';$('emptyState').classList.toggle('hidden',items.length>0);
+ items.forEach(p=>{
+   const tr=document.createElement('tr');
+   tr.innerHTML='<td><strong>'+escapeHtml(p.name||'Unnamed')+'</strong><div style="font-size:11px;color:#777;margin-top:4px">'+escapeHtml(p.location||'')+'</div></td><td>'+escapeHtml(p.session_type||'—')+'</td><td>'+escapeHtml(p.preferred_date||'—')+'</td><td>'+escapeHtml(p.budget||'—')+'</td><td><span class="status">'+escapeHtml(p.status||'new')+'</span></td><td>'+escapeHtml(fmtDate(p.created_at))+'</td>';
+   tr.addEventListener('click',()=>openDrawer(p));body.appendChild(tr)
+ })
+}
+function openDrawer(p){
+ selectedProject=p;$('drawerTitle').textContent=p.name||'Unnamed client';$('drawerEyebrow').textContent=p.session_type||'PROJECT REQUEST';$('statusSelect').value=p.status||'new';
+ $('details').innerHTML=[
+  d('Email',p.email,true),d('Phone / WhatsApp',p.phone),d('Session',p.session_type),d('Project type',p.project_type),d('Location',p.location),d('Preferred date',p.preferred_date),d('Preferred time',p.preferred_time),d('Budget',p.budget),d('Project brief',p.description),d('Received',fmtDate(p.created_at))
+ ].join('');
+ $('drawer').classList.add('open');$('drawer').setAttribute('aria-hidden','false')
+}
+function d(label,value,link=false){const val=value||'—';const content=link&&value?'<a href="mailto:'+escapeHtml(value)+'">'+escapeHtml(value)+'</a>':escapeHtml(val);return '<div class="detail"><div class="mono detail-label">'+escapeHtml(label)+'</div><div class="detail-value">'+content+'</div></div>'}
+async function saveStatus(){
+ if(!selectedProject)return;const newStatus=$('statusSelect').value;
+ const {error}=await supabaseClient.from('project_requests').update({status:newStatus}).eq('id',selectedProject.id);
+ if(error){console.error(error);alert('Could not update status. The authenticated UPDATE policy may not be configured yet.');return}
+ selectedProject.status=newStatus;const i=projects.findIndex(p=>p.id===selectedProject.id);if(i>=0)projects[i].status=newStatus;renderStats();renderTable();openDrawer(selectedProject)
+}
+
+$('loginBtn').addEventListener('click',async()=>{
+ $('loginError').textContent='';const email=$('loginEmail').value.trim(),password=$('loginPassword').value;
+ const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+
+if(error){
+  $('loginError').textContent=error.message;
+  return;
+}
+
+if(data.user?.id !== ADMIN_USER_ID){
+  await supabaseClient.auth.signOut();
+  $('loginError').textContent='This account is not authorized to access CREATE STUDIO Admin.';
+  return;
+}
+
+$('currentUser').textContent=data.user?.email||email;setView(true);await loadProjects()
+});
+$('logoutBtn').addEventListener('click',async()=>{await supabaseClient.auth.signOut();projects=[];setView(false)});
+$('search').addEventListener('input',renderTable);$('statusFilter').addEventListener('change',renderTable);
+$('closeDrawer').addEventListener('click',()=>{$('drawer').classList.remove('open');$('drawer').setAttribute('aria-hidden','true');selectedProject=null});
+$('drawer').addEventListener('click',e=>{if(e.target===$('drawer'))$('closeDrawer').click()});
+$('saveStatus').addEventListener('click',saveStatus);
+supabaseClient.auth.onAuthStateChange(async (_e,session)=>{
+  if(session){
+    if(session.user.id !== ADMIN_USER_ID){
+      await supabaseClient.auth.signOut();
+      setView(false);
+      $('loginError').textContent='This account is not authorized to access CREATE STUDIO Admin.';
+      return;
+    }
+
+    $('currentUser').textContent=session.user.email||'';
+    setView(true);
+    await loadProjects();
+  }else{
+    setView(false);
+  }
+});
+loadSession();
+</script>
+</body>
+</html>
