@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PLAN YOUR PROJECT — CREATE STUDIO</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f1ed;color:#111;font-family:Poppins,Arial,sans-serif}.page{padding:32px 4vw 70px}.top{display:flex;justify-content:space-between;align-items:flex-start}.brand{display:flex;flex-direction:column;line-height:.78;text-decoration:none;color:inherit}.brand strong{font-size:clamp(34px,4vw,56px);font-weight:600;letter-spacing:-.07em}.brand small,.eyebrow,.num,.label{font:400 10px 'DM Mono';letter-spacing:.1em;text-transform:uppercase}.brand small{letter-spacing:.25em;margin-top:7px}.back{font:400 10px 'DM Mono';text-transform:uppercase;border-bottom:1px solid #111;padding-bottom:4px;text-decoration:none;color:inherit}.progress{display:flex;gap:10px;margin:70px 0 30px;flex-wrap:wrap}.step{font:400 9px 'DM Mono';text-transform:uppercase;border:1px solid #bbb;padding:9px 11px;border-radius:999px}.step.active{background:#111;color:#f2f1ed;border-color:#111}.intro{max-width:900px;padding:3vh 0 8vh}.intro h1{font-size:clamp(68px,10vw,155px);font-weight:400;line-height:.8;letter-spacing:-.085em;margin:25px 0}.intro h1 i{font-family:Georgia,serif;font-weight:700}.intro p{max-width:650px;color:#555;line-height:1.7;font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:start}.panel{border-top:1px solid #111;padding-top:22px;margin-bottom:70px}.panel h2{font-size:clamp(36px,4.5vw,66px);font-weight:400;line-height:.9;letter-spacing:-.06em;margin:20px 0 45px}.field{margin-bottom:27px}.field label{display:block;margin-bottom:10px}.field input,.field textarea,.field select{width:100%;background:transparent;border:0;border-bottom:1px solid #999;padding:12px 0;font:400 14px Poppins;outline:none;color:#111}.field textarea{min-height:110px;resize:vertical;border:1px solid #aaa;padding:14px}.field input:focus,.field select:focus{border-color:#111}.choices{display:flex;flex-wrap:wrap;gap:9px}.choice{position:relative}.choice input{position:absolute;opacity:0}.choice label{display:block;border:1px solid #aaa;border-radius:999px;padding:11px 14px;font:400 10px 'DM Mono';text-transform:uppercase;cursor:pointer;transition:.2s}.choice input:checked+label{background:#111;color:#f2f1ed;border-color:#111}.summary{border:1px solid #111;padding:28px;background:#ebeae5;position:sticky;top:25px}.summary h2{font-size:clamp(36px,4vw,58px);line-height:.88;font-weight:400;letter-spacing:-.06em;margin:20px 0}.summary dl{margin:25px 0}.summary dt{font:400 9px 'DM Mono';text-transform:uppercase;color:#777;margin-top:18px}.summary dd{margin:4px 0 0;font-size:14px}.upload{border:1px dashed #888;padding:22px;text-align:center}.upload input{display:none}.upload label{display:inline-block;border:1px solid #111;border-radius:999px;padding:12px 16px;font:400 9px 'DM Mono';text-transform:uppercase;cursor:pointer}.review{display:none;border-top:1px solid #111;padding-top:25px;margin-top:25px}.review.show{display:block}.submit{width:100%;border:1px solid #111;background:#111;color:#f2f1ed;border-radius:999px;padding:17px 20px;font:400 10px 'DM Mono';text-transform:uppercase;letter-spacing:.08em;cursor:pointer;margin-top:18px}.small{font-size:11px;color:#777;line-height:1.6}.confirmation{display:none;min-height:65vh;align-items:center;justify-content:center;text-align:center}.confirmation.show{display:flex}.confirmation h1{font-size:clamp(70px,11vw,180px);font-weight:400;line-height:.8;letter-spacing:-.085em;margin:20px 0}.confirmation i{font-family:Georgia,serif;font-weight:700}.confirmation p{max-width:550px;margin:0 auto 30px;line-height:1.7;color:#555}.hidden{display:none!important}@media(max-width:850px){.page{padding:24px 6vw 55px}.grid{grid-template-columns:1fr;gap:40px}.summary{position:relative;top:auto}.intro h1{font-size:18vw}.progress{margin-top:50px}.confirmation h1{font-size:19vw}}
-</style></head><body><main class="page" id="app"><header class="top"><a class="brand" href="../index.html"><strong>CREATE</strong><small>STUDIO</small></a><a class="back" href="book.html">← Change session</a></header><div class="progress"><span class="step active">01 Choose</span><span class="step">02 Details</span><span class="step">03 Schedule</span><span class="step">04 Confirm</span></div><section class="intro"><p class="eyebrow">PROJECT INTAKE</p><h1>LET'S PLAN<br>THE <i>WORK.</i></h1><p>Tell us what you're imagining, choose a time that works, and we'll take it from there. Nothing is locked in until we confirm the project.</p></section><section class="grid" id="formArea"><div><section class="panel"><p class="eyebrow">01 — YOUR PROJECT</p><h2>TELL US<br>ABOUT IT.</h2><div class="field"><label class="label">Your name</label><input id="name" placeholder="Full name"></div><div class="field"><label class="label">Email</label><input id="email" type="email" placeholder="you@example.com"></div><div class="field"><label class="label">Phone / WhatsApp</label><input id="phone" placeholder="Optional"></div><div class="field"><label class="label">Location / City</label><input id="location" placeholder="Where would we create?"></div><div class="field"><label class="label">What are you looking for?</label><div class="choices"><div class="choice"><input id="c1" type="checkbox" value="Photography"><label for="c1">Photography</label></div><div class="choice"><input id="c2" type="checkbox" value="Video"><label for="c2">Video</label></div><div class="choice"><input id="c3" type="checkbox" value="Creative Direction"><label for="c3">Creative Direction</label></div><div class="choice"><input id="c4" type="checkbox" value="Editing"><label for="c4">Editing</label></div><div class="choice"><input id="c5" type="checkbox" value="Full Production"><label for="c5">Full Production</label></div></div></div><div class="field"><label class="label">Project brief</label><textarea id="brief" placeholder="What are you imagining? Tell us about the idea, the story, the people involved or anything we should know."></textarea></div><div class="field"><label class="label">Project scale / budget</label><div class="choices"><div class="choice"><input name="budget" id="b1" type="radio" value="Under ₹10K"><label for="b1">Under ₹10K</label></div><div class="choice"><input name="budget" id="b2" type="radio" value="₹10K–₹25K"><label for="b2">₹10K–₹25K</label></div><div class="choice"><input name="budget" id="b3" type="radio" value="₹25K–₹50K"><label for="b3">₹25K–₹50K</label></div><div class="choice"><input name="budget" id="b4" type="radio" value="₹50K+"><label for="b4">₹50K+</label></div><div class="choice"><input name="budget" id="b5" type="radio" value="Let's discuss"><label for="b5">Let's discuss</label></div></div></div><div class="field"><label class="label">Reference material</label><div class="upload"><input id="refs" type="file" multiple accept="image/*,.pdf"><label for="refs">Add references +</label><p class="small" id="fileNames">Moodboards, screenshots, briefs or PDFs. Optional.</p></div></div></section><section class="panel"><p class="eyebrow">02 — SCHEDULE</p><h2>WHEN SHOULD<br>WE <i>CREATE?</i></h2><p class="small" style="margin-bottom:22px">Choose a real-time available slot below. Your booking is handled securely by Cal.com.</p><div id="cal-inline" style="width:100%;height:720px;overflow:hidden;border:1px solid #111;background:#ebeae5;"></div></section></div><aside class="summary"><p class="eyebrow">03 — REVIEW</p><h2 id="sessionTitle">SELECT A SESSION.</h2><p class="small">Your selected session will appear here. Review everything before sending your project request.</p><dl><dt>Session</dt><dd id="sumSession">—</dd><dt>Date</dt><dd id="sumDate">—</dd><dt>Time</dt><dd id="sumTime">—</dd><dt>Location</dt><dd id="sumLocation">—</dd><dt>Budget</dt><dd id="sumBudget">—</dd></dl><div class="review show" id="review"><p class="eyebrow">NEXT STEP</p><p class="small">Choose a time in the Cal.com scheduler. Once the booking is successfully created, your project request will be sent to CREATE STUDIO automatically.</p></div></aside></section><section class="confirmation" id="confirmation"><div><p class="eyebrow">PROJECT RECEIVED</p><h1>LET'S<br><i>CREATE.</i></h1><p id="confirmText">We've got your idea. We'll review the details and get back to you with the next step.</p><a class="cta" href="index.html">Back to CREATE →</a></div></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</style></head><body><main class="page" id="app"><header class="top"><a class="brand" href="../index.html"><strong>CREATE</strong><small>STUDIO</small></a><a class="back" href="book.html">← Change session</a></header><div class="progress"><span class="step active">01 Choose</span><span class="step">02 Details</span><span class="step">03 Schedule</span><span class="step">04 Confirm</span></div><section class="intro"><p class="eyebrow">PROJECT INTAKE</p><h1>LET'S PLAN<br>THE <i>WORK.</i></h1><p>Tell us what you're imagining, choose a time that works, and we'll take it from there. Nothing is locked in until we confirm the project.</p></section><section class="grid" id="formArea"><div><section class="panel"><p class="eyebrow">01 — YOUR PROJECT</p><h2>TELL US<br>ABOUT IT.</h2><div class="field"><label class="label">Your name</label><input id="name" placeholder="Full name"></div><div class="field"><label class="label">Email</label><input id="email" type="email" placeholder="you@example.com"></div><div class="field"><label class="label">Phone / WhatsApp</label><input id="phone" placeholder="Optional"></div><div class="field"><label class="label">Location / City</label><input id="location" placeholder="Where would we create?"></div><div class="field"><label class="label">What are you looking for?</label><div class="choices"><div class="choice"><input id="c1" type="checkbox" value="Photography"><label for="c1">Photography</label></div><div class="choice"><input id="c2" type="checkbox" value="Video"><label for="c2">Video</label></div><div class="choice"><input id="c3" type="checkbox" value="Creative Direction"><label for="c3">Creative Direction</label></div><div class="choice"><input id="c4" type="checkbox" value="Editing"><label for="c4">Editing</label></div><div class="choice"><input id="c5" type="checkbox" value="Full Production"><label for="c5">Full Production</label></div></div></div><div class="field"><label class="label">Project brief</label><textarea id="brief" placeholder="What are you imagining? Tell us about the idea, the story, the people involved or anything we should know."></textarea></div><div class="field"><label class="label">Project scale / budget</label><div class="choices"><div class="choice"><input name="budget" id="b1" type="radio" value="Under ₹10K"><label for="b1">Under ₹10K</label></div><div class="choice"><input name="budget" id="b2" type="radio" value="₹10K–₹25K"><label for="b2">₹10K–₹25K</label></div><div class="choice"><input name="budget" id="b3" type="radio" value="₹25K–₹50K"><label for="b3">₹25K–₹50K</label></div><div class="choice"><input name="budget" id="b4" type="radio" value="₹50K+"><label for="b4">₹50K+</label></div><div class="choice"><input name="budget" id="b5" type="radio" value="Let's discuss"><label for="b5">Let's discuss</label></div></div></div><div class="field"><label class="label">Reference material</label><div class="upload"><input id="refs" type="file" multiple accept="image/*,.pdf"><label for="refs">Add references +</label><p class="small" id="fileNames">Moodboards, screenshots, briefs or PDFs. Optional.</p></div></div></section><section class="panel"><p class="eyebrow">02 — SCHEDULE</p><h2>WHEN SHOULD<br>WE <i>CREATE?</i></h2><p class="small" style="margin-bottom:22px">Choose a real-time available slot below. Your booking is handled securely by Cal.com.</p><div style="width:100%;height:720px;overflow:hidden;border:1px solid #111;background:#ebeae5" id="my-cal-inline-30min"></div></section></div><aside class="summary"><p class="eyebrow">03 — REVIEW</p><h2 id="sessionTitle">SELECT A SESSION.</h2><p class="small">Your selected session will appear here. Review everything before sending your project request.</p><dl><dt>Session</dt><dd id="sumSession">—</dd><dt>Date</dt><dd id="sumDate">—</dd><dt>Time</dt><dd id="sumTime">—</dd><dt>Location</dt><dd id="sumLocation">—</dd><dt>Budget</dt><dd id="sumBudget">—</dd></dl><div class="review show" id="review"><p class="eyebrow">NEXT STEP</p><p class="small">Choose a time in the Cal.com scheduler. Once the booking is successfully created, your project request will be sent to CREATE STUDIO automatically.</p></div></aside></section><section class="confirmation" id="confirmation"><div><p class="eyebrow">PROJECT RECEIVED</p><h1>LET'S<br><i>CREATE.</i></h1><p id="confirmText">We've got your idea. We'll review the details and get back to you with the next step.</p><a class="cta" href="index.html">Back to CREATE →</a></div></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const params = new URLSearchParams(location.search);
 const slug = params.get('session') || '';
@@ -47,29 +47,25 @@ function showConfirmation(name){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// Cal.com inline embed — official bootstrap pattern
-(function (C, A, L) {
-  C[L] = C[L] || function () {
-    (C[L].q = C[L].q || []).push(arguments);
-  };
-  const d = C.document;
-  const S = d.createElement("script");
-  S.async = true;
-  S.src = A;
-  const H = d.getElementsByTagName("script")[0];
-  H.parentNode.insertBefore(S, H);
-})(window, "https://cal.com/embed.js", "Cal");
+// Cal.com embed — generated from the Cal.com Embed Snippet Generator
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 
-Cal("init", { origin: "https://cal.com" });
+Cal("init", "30min", { origin: "https://app.cal.com" });
+Cal.config = Cal.config || {};
+Cal.config.forwardQueryParams = true;
 
-Cal("inline", {
-  elementOrSelector: "#cal-inline",
-  calLink: "phillip-kapito-9c1qoh/30min",
+Cal.ns["30min"]("inline", {
+  elementOrSelector: "#my-cal-inline-30min",
   config: {
     layout: "month_view",
-    useSlotsViewOnSmallScreen: "true",
-    theme: "light"
-  }
+    useSlotsViewOnSmallScreen: "true"
+  },
+  calLink: "phillip-kapito-9c1qoh/30min"
+});
+
+Cal.ns["30min"]("ui", {
+  hideEventTypeDetails: false,
+  layout: "month_view"
 });
 
 Cal("on", {
@@ -104,21 +100,19 @@ Cal("on", {
     document.getElementById("sumDate").textContent = preferredDate || "Booked";
     document.getElementById("sumTime").textContent = preferredTime;
 
-    const { error } = await supabaseClient
-      .from("project_requests")
-      .insert([{
-        name,
-        email,
-        phone: phone || null,
-        session_type: title || null,
-        location: location || null,
-        project_type: projectTypes || null,
-        description: brief,
-        budget: budget || null,
-        preferred_date: preferredDate,
-        preferred_time: preferredTime,
-        status: "new"
-      }]);
+    const { error } = await supabaseClient.from("project_requests").insert([{
+      name,
+      email,
+      phone: phone || null,
+      session_type: title || null,
+      location: location || null,
+      project_type: projectTypes || null,
+      description: brief,
+      budget: budget || null,
+      preferred_date: preferredDate,
+      preferred_time: preferredTime,
+      status: "new"
+    }]);
 
     if (error) {
       console.error("Supabase booking submission error:", error);
