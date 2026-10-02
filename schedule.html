@@ -24,7 +24,13 @@ sumSession.textContent = title || '—';
 
 const SUPABASE_URL='https://pfttxhjefnovagkddazc.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_mokm6MJJPZyXrYRfG5QxPw_LaRH4qjz';
-const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{
+  auth:{
+    persistSession:false,
+    autoRefreshToken:false,
+    detectSessionInUrl:false
+  }
+});
 
 function updateSummary(){
   const location = document.getElementById('location').value.trim();
@@ -140,7 +146,7 @@ document.getElementById("sendProjectBtn").addEventListener("click", async () => 
     console.error("Supabase submission error:", error);
     button.disabled = false;
     button.textContent = "Send project to CREATE →";
-    alert("The Cal.com booking is confirmed, but the project could not be sent to your CREATE dashboard. Please try again.");
+    alert(`The Cal.com booking is confirmed, but the project could not be sent to your CREATE dashboard.\n\nSupabase: ${error.message || "Unknown error"}`);
     return;
   }
 
